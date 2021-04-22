@@ -1,0 +1,60 @@
+@import "../../style/extend.scss";
+
+.home {
+	@extend .full-page;
+	@include bg-reset(cover);
+	background-image: url("../../asset/img/bg@2x.png");
+	position: relative;
+	overflow: hidden;
+}
+
+.egg-container {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-bottom: 0.31rem;
+
+	& > div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	.egg {
+		width: 5.19rem;
+		height: 4.36rem;
+
+		@include bg-reset(contain);
+		background-image: url("../../asset/img/复活节彩蛋@2x.png");
+	}
+
+	.egg-button {
+		width: 4.31rem;
+		height: 1.48rem;
+
+		background-image: url("../../asset/img/bt@2x.png");
+
+		display: flex;
+
+		.button-content {
+			font-size: 0.44rem;
+			font-family: PingFang SC;
+			font-weight: 600;
+			color: #ffffff;
+
+			margin-left: 1.7rem;
+			margin-top: 0.38rem;
+		}
+	}
+}
+
+.content-container {
+	.title {
+		width: 4.9rem;
+		height: 1.56rem;
+		background-image: url("../../asset/img/主标题-简体@2x.png");
+		margin: 0 auto;
+		margin-top: 0.91rem;
+	}
+}

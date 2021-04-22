@@ -10,7 +10,6 @@ import { config } from "./config";
 class Route extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log(config);
 	}
 
 	render() {
@@ -19,7 +18,7 @@ class Route extends React.Component {
 				<Switch>
 					{config.map((item) => {
 						return (
-							<RouteDom path={item.path}>
+							<RouteDom path={item.path} key={item.path}>
 								<item.component></item.component>
 							</RouteDom>
 						);
