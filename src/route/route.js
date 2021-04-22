@@ -1,11 +1,6 @@
 import React from "react";
-import {
-	Switch,
-	HashRouter as Router,
-	Route as RouteDom,
-} from "react-router-dom";
-import About from "../page/about/about";
-import { config } from "./config";
+import { Switch, HashRouter as Router } from "react-router-dom";
+import Guard from "./guard";
 
 class Route extends React.Component {
 	constructor(props) {
@@ -16,13 +11,7 @@ class Route extends React.Component {
 		return (
 			<Router>
 				<Switch>
-					{config.map((item) => {
-						return (
-							<RouteDom path={item.path} key={item.path}>
-								<item.component></item.component>
-							</RouteDom>
-						);
-					})}
+					<Guard></Guard>;
 				</Switch>
 			</Router>
 		);
