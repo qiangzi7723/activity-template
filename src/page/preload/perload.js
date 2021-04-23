@@ -3,6 +3,8 @@ import React from "react";
 class Preload extends React.Component {
 	constructor(props) {
 		super(props);
+		this.$store.preloadDone = true;
+		this.props.history.push("/home");
 	}
 
 	render() {

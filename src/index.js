@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import Route from "./route/route";
 import "./style/reset.scss";
-import "./config/rem";
+import "../src/config/store";
 
 ReactDOM.render(
 	<React.StrictMode>
