@@ -10,6 +10,8 @@ import { config } from "./config";
 class Guard extends React.Component {
 	constructor(props) {
 		super(props);
+		// const list = require.context("@img/", true).keys();
+		// console.log(list);
 	}
 
 	render() {
