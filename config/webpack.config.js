@@ -340,6 +340,7 @@ module.exports = function (webpackEnv) {
 				...(modules.webpackAliases || {}),
 				"@asset": path.resolve(__dirname, "../src/asset/"),
 				"@img": path.resolve(__dirname, "../src/asset/img/"),
+				"@component": path.resolve(__dirname, "../src/component/"),
 			},
 			plugins: [
 				// Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -563,7 +564,7 @@ module.exports = function (webpackEnv) {
 			],
 		},
 		plugins: [
-			new AssetPreloadPlugin(),
+			isEnvProduction && new AssetPreloadPlugin(),
 
 			// Generates an `index.html` file with the <script> injected.
 			new HtmlWebpackPlugin(

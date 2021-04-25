@@ -4,6 +4,8 @@ import reportWebVitals from "./reportWebVitals";
 import Route from "./route/route";
 import "./style/reset.scss";
 import "../src/config/store";
+import "../src/config/rem";
+import "../src/axios/index";
 
 ReactDOM.render(
 	<React.StrictMode>
