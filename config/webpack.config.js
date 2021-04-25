@@ -32,7 +32,7 @@ const postcssNormalize = require("postcss-normalize");
 const appPackageJson = require(paths.appPackageJson);
 
 // 引入自定义插件
-const AssetPreload = require("../webpackPlugins/assetPreload");
+const AssetPreloadPlugin = require("../webpackPlugins/AssetPreloadPlugin");
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
@@ -563,7 +563,7 @@ module.exports = function (webpackEnv) {
 			],
 		},
 		plugins: [
-			new AssetPreload(),
+			new AssetPreloadPlugin(),
 
 			// Generates an `index.html` file with the <script> injected.
 			new HtmlWebpackPlugin(

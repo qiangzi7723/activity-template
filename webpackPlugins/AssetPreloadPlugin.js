@@ -1,7 +1,7 @@
-function AssetPreload() {}
+function AssetPreloadPlugin() {}
 const fse = require("fse");
 
-AssetPreload.prototype.apply = function (compiler) {
+AssetPreloadPlugin.prototype.apply = function (compiler) {
 	// 需要重复打包两次才会生效 即这次打包，预加载的是上次的资源文件。下次打包，预加载的队列，才是本次的
 	// 原因：目前看来，应该是打包生成build/static文件夹，与webpack的代码编译是关联在一起的，无法通过这种方式，挂载到其中某个生命周期
 	compiler.hooks.afterCompile.tap("AssetPreload", (compilation) => {
@@ -33,4 +33,4 @@ export default assetList;
 	});
 };
 
-module.exports = AssetPreload;
+module.exports = AssetPreloadPlugin;
