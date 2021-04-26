@@ -6,6 +6,7 @@ import "./style/reset.scss";
 import "../src/config/store";
 import "../src/config/rem";
 import "../src/axios/index";
+import Toast from "@component/common/toast/toast";
 
 ReactDOM.render(
 	<React.StrictMode>

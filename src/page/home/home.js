@@ -16,6 +16,10 @@ class Home extends React.Component {
 		});
 	}
 
+	clickEgg() {
+		this.$toast("很抱歉，砸蛋功能开发中");
+	}
+
 	render() {
 		return (
 			<div className="home">
@@ -30,7 +34,12 @@ class Home extends React.Component {
 					</div>
 					<div className="egg-footer">
 						<div className="egg-button">
-							<span className="button-content">砸蛋</span>
+							<span
+								className="button-content"
+								onClick={this.clickEgg.bind(this)}
+							>
+								砸蛋
+							</span>
 						</div>
 					</div>
 				</section>
