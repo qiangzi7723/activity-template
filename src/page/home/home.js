@@ -2,12 +2,45 @@ import React from "react";
 import "./home.scss";
 import Rule from "@component/rule/rule.js";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.scss";
+
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			ruleShow: false,
+			eggList: [],
+			activeIndex: 0,
 		};
+	}
+
+	componentDidMount() {
+		let eggList = [
+			{
+				status: "normal",
+			},
+			{
+				status: "lock",
+			},
+			{
+				status: "normal",
+			},
+			{
+				status: "normal",
+			},
+			{
+				status: "normal",
+			},
+		];
+		const lsEggList = this.$ls.get("eggList");
+		if (lsEggList != null) {
+			eggList = lsEggList;
+		}
+
+		this.setState({
+			eggList,
+		});
 	}
 
 	triggerRule() {
@@ -17,7 +50,24 @@ class Home extends React.Component {
 	}
 
 	clickEgg() {
-		this.$toast("很抱歉，砸蛋功能开发中");
+		// 当前蛋的状态
+		const status = this.state.eggList[this.state.activeIndex].status;
+		const eggList = this.state.eggList;
+		if (status === "lock") {
+			this.$toast("当前蛋尚未解锁");
+		} else if (status === "normal") {
+			eggList[this.state.activeIndex].status = "open";
+			this.setState({ eggList });
+			this.$ls.set("eggList", eggList);
+		} else {
+			this.$toast("当前蛋已经解锁了");
+		}
+	}
+
+	slideChange(sw) {
+		this.setState({
+			activeIndex: sw.activeIndex,
+		});
 	}
 
 	render() {
@@ -30,16 +80,22 @@ class Home extends React.Component {
 
 				<section className="egg-container">
 					<div className="egg-top">
-						<div className="egg"></div>
+						<Swiper onSlideChange={this.slideChange.bind(this)}>
+							{this.state.eggList.map((item, index) => {
+								return (
+									<SwiperSlide key={index}>
+										<div
+											className={"egg egg-" + item.status}
+											status={item.status}
+										></div>
+									</SwiperSlide>
+								);
+							})}
+						</Swiper>
 					</div>
 					<div className="egg-footer">
-						<div className="egg-button">
-							<span
-								className="button-content"
-								onClick={this.clickEgg.bind(this)}
-							>
-								砸蛋
-							</span>
+						<div className="egg-button" onClick={this.clickEgg.bind(this)}>
+							<span className="button-content">砸蛋</span>
 						</div>
 					</div>
 				</section>

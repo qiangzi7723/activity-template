@@ -8,6 +8,10 @@
 	overflow: hidden;
 }
 
+.swiper-container {
+	width: 5.19rem;
+}
+
 .egg-container {
 	position: absolute;
 	bottom: 0;
@@ -21,12 +25,69 @@
 		width: 100%;
 	}
 
+	// 设置鸡蛋的颜色
+	.swiper-slide:nth-of-type(2) {
+		.egg {
+			background-image: url("~@img/egg/复活节彩蛋二@2x.png");
+		}
+		.egg-normal {
+			background-image: url("~@img/egg/复活节彩蛋二@2x(1).png");
+		}
+		.egg-open {
+			background-image: url("~@img/egg/复活节彩蛋二砸破@2x.png");
+		}
+	}
+
+	.swiper-slide:nth-of-type(3) {
+		.egg {
+			background-image: url("~@img/egg/复活节彩蛋三@2x.png");
+		}
+		.egg-normal {
+			background-image: url("~@img/egg/复活节彩蛋三@2x(1).png");
+		}
+		.egg-open {
+			background-image: url("~@img/egg/复活节彩蛋三砸破@2x.png");
+		}
+	}
+
+	.swiper-slide:nth-of-type(4) {
+		.egg {
+			background-image: url("~@img/egg/复活节彩蛋四@2x.png");
+		}
+		.egg-normal {
+			background-image: url("~@img/egg/复活节彩蛋四@2x(1).png");
+		}
+		.egg-open {
+			background-image: url("~@img/egg/复活节彩蛋四砸破@2x.png");
+		}
+	}
+
+	.swiper-slide:nth-of-type(5) {
+		.egg {
+			background-image: url("~@img/egg/复活节彩蛋五@2x.png");
+		}
+		.egg-normal {
+			background-image: url("~@img/egg/复活节彩蛋五@2x(1).png");
+		}
+		.egg-open {
+			background-image: url("~@img/egg/复活节彩蛋五砸破@2x.png");
+		}
+	}
+
 	.egg {
 		width: 5.19rem;
 		height: 4.36rem;
 
 		@include bg-reset(contain);
-		background-image: url("~@img/复活节彩蛋@2x.png");
+		background-image: url("~@img/egg/复活节彩蛋一@2x.png");
+	}
+
+	.egg-normal {
+		background-image: url("~@img/egg/复活节彩蛋一@2x(1).png");
+	}
+	.egg-open {
+		animation: fadeIn 0.6s;
+		background-image: url("~@img/egg/复活节彩蛋一砸破@2x.png");
 	}
 
 	.egg-button {

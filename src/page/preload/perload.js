@@ -42,7 +42,7 @@ class Preload extends React.Component {
 			for (let i = 0; i < assetList.length; i++) {
 				const item = assetList[i];
 				const img = new Image();
-				img.onload = () => {
+				img.onload = img.onerror = () => {
 					console.log("图片资源加载", img.src);
 					this.setState({
 						current: this.state.current + 1,
